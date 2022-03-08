@@ -1,4 +1,8 @@
 *.o
 luac.out
-lua
-luac
+
+bin/luac
+bin/lua
+
+test/luac
+test/lua
