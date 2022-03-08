@@ -2,4 +2,4 @@
 
 https://www.lua.org/ftp/lua-4.0.1.tar.gz
 
-虚拟机的实现方式 是栈寄存器
+虚拟机的实现方式 是栈虚拟机
