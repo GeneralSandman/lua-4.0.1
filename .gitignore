@@ -1,4 +1,8 @@
 *.o
+
+lib/liblua.a
+lib/liblualib.a
+
 luac.out
 
 bin/luac
