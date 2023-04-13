@@ -34,22 +34,28 @@ static const char* output=OUTPUT;	/* output file name */
 
 int main(int argc, const char* argv[])
 {
- Proto** P,*tf;
- int i=doargs(argc,argv);
- argc-=i; argv+=i;
- if (argc<=0) usage("no input files given",NULL);
- L=lua_open(0);
- P=luaM_newvector(L,argc,Proto*);
- for (i=0; i<argc; i++)
-  P[i]=load(IS("-")? NULL : argv[i]);
- tf=combine(P,argc);
- if (dumping) luaU_optchunk(tf);
- if (listing) luaU_printchunk(tf);
- if (testing) luaU_testchunk(tf);
- if (dumping)
- {
-  if (stripping) strip(tf);
-  luaU_dumpchunk(tf,efopen(output,"wb"));
+  Proto **P, *tf;
+  int i = doargs(argc, argv);
+  argc -= i;
+  argv += i;
+  if (argc <= 0)
+    usage("no input files given", NULL);
+  L = lua_open(0);
+  P = luaM_newvector(L, argc, Proto *);
+  for (i = 0; i < argc; i++)
+    P[i] = load(IS("-") ? NULL : argv[i]);
+  tf = combine(P, argc);
+  if (dumping)
+    luaU_optchunk(tf);
+  if (listing)
+    luaU_printchunk(tf);
+  if (testing)
+    luaU_testchunk(tf);
+  if (dumping)
+  {
+    if (stripping)
+      strip(tf);
+    luaU_dumpchunk(tf, efopen(output, "wb"));
  }
  return 0;
 }

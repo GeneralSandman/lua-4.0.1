@@ -348,6 +348,7 @@ static void adjust_varargs (lua_State *L, StkId base, int nfixargs) {
 ** Executes the given Lua function. Parameters are between [base,top).
 ** Returns n such that the the results are between [n,top).
 */
+//  TODO: execute virtual machine
 StkId luaV_execute (lua_State *L, const Closure *cl, StkId base) {
   const Proto *const tf = cl->f.l;
   StkId top;  /* keep top local, for performance */
